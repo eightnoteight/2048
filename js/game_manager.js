@@ -68,7 +68,7 @@ GameManager.prototype.addStartTiles = function () {
 // Adds a tile in a random position
 GameManager.prototype.addRandomTile = function () {
   if (this.grid.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
+    var value = Math.random() < /*0.9 is changed to*/1 ? 2 : 4;/* this results in the occurence of 2 only  */
     var tile = new Tile(this.grid.randomAvailableCell(), value);
 
     this.grid.insertTile(tile);
@@ -179,7 +179,7 @@ GameManager.prototype.move = function (direction) {
     });
   });
 
-  if (moved) {
+  if (/* moved is replaced with */1) {
     this.addRandomTile();
 
     if (!this.movesAvailable()) {
